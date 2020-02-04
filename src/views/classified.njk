@@ -1,0 +1,29 @@
+{% extends "./base.njk" %}
+
+{% block content %}
+  <h2>{{ classified.title }}</h2>
+  <dl>
+    <dt>Game</dt>
+    <dd>{{ classified.game }}</dd>
+
+    <dt>Age Range</dt>
+    <dd>{{ classified.minAge }} - {{ classified.maxAge }}</dd>
+
+    <dt>Play Type</dt>
+    <dd>{{ classified.playKind }}</dd>
+
+    <dt>Location</dt>
+    <dd>{{ classified.continent }}</dd>
+
+    <dt>Created At</dt>
+    <dd>{{ classified.createdAt }}</dd>
+  </dl>
+  <h3>Comments</h3>
+  <ul>
+  {% for comment in classified.comments %}
+    <li>
+      <p>comment.content</p>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

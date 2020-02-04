@@ -1,0 +1,18 @@
+{% extends "./base.njk" %}
+
+{% block content %}
+  <ul>
+  {% for classified in classifieds %}
+    <li>
+      <h3>{{ classified.title }}</h3>
+      <ul>
+         {% for comment in classified.comments %}
+          <li>
+            <p>comment.content</p>
+          </li>
+          {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
