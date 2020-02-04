@@ -1,18 +1,11 @@
 {% extends "./base.njk" %}
 
 {% block content %}
-  <ul>
   {% for classified in classifieds %}
-    <li>
-      <h3>{{ classified.title }}</h3>
-      <ul>
-         {% for comment in classified.comments %}
-          <li>
-            <p>comment.content</p>
-          </li>
-          {% endfor %}
-      </ul>
-    </li>
+    <div>
+      <a href="/classifieds/{{ classified.id }}">{{ classified.title }}</a>
+      <br />
+      <span>{{ classified.platform }} | {{ classified.game }} | {{ classified.playKind}} | Ages {{ classified.minAge}} - {{classified.maxAge}} | {{ classified.continent }}<span>
+    </div>
   {% endfor %}
-  </ul>
 {% endblock %}
