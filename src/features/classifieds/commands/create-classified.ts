@@ -1,4 +1,4 @@
-import { Classified, PlayKind, Continent } from "../classified";
+import { Classified, PlayKind, Continent, Platform } from "../classified";
 import { EntityRepository } from "mikro-orm";
 import { Injectable, Inject } from "@nestjs/common";
 import { Repositories } from "src/constants";
@@ -17,7 +17,8 @@ export class CreateClassified {
       params.minAge,
       params.maxAge,
       params.continent,
-      params.playKind
+      params.playKind,
+      params.platform
     );
     await this.classifiedRepository.persistAndFlush(classified);
 
@@ -32,4 +33,5 @@ export interface CreateClassifiedDto {
   maxAge: number;
   continent: Continent;
   playKind: PlayKind;
+  platform: Platform;
 }

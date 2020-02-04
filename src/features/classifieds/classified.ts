@@ -16,7 +16,18 @@ export type Continent =
   | "ANTARTICA"
   | "EUROPE"
   | "AUSTRALIA";
+
 export type PlayKind = "Casual" | "Serious" | "Any";
+
+export type Platform =
+  | "Wii"
+  | "Wii U"
+  | "Switch"
+  | "PS3"
+  | "PS4"
+  | "Xbox 360"
+  | "Xbox One"
+  | "PC";
 
 @Entity()
 export class Classified implements IdEntity<Classified> {
@@ -45,6 +56,9 @@ export class Classified implements IdEntity<Classified> {
   continent: Continent;
 
   @Property()
+  platform: Platform;
+
+  @Property()
   comments: Comment[];
 
   @Property()
@@ -59,7 +73,8 @@ export class Classified implements IdEntity<Classified> {
     minAge: number,
     maxAge: number,
     continent: Continent,
-    playKind: PlayKind
+    playKind: PlayKind,
+    platform: Platform
   ) {
     this.title = title;
     this.game = game;
@@ -67,6 +82,7 @@ export class Classified implements IdEntity<Classified> {
     this.playKind = playKind;
     this.minAge = minAge;
     this.maxAge = maxAge;
+    this.platform = platform;
     this.comments = [];
   }
 }
