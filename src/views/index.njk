@@ -8,4 +8,60 @@
       <span>{{ classified.platform }} | {{ classified.game }} | {{ classified.playKind}} | Ages {{ classified.minAge}} - {{classified.maxAge}} | {{ classified.continent }}<span>
     </div>
   {% endfor %}
+
+  <form method="POST" action="/classifieds">
+    <label for="title">
+      Title: <input type="text" name="title">
+    </label>
+    <br />
+    <label for="game">
+      Game: <input type="text" name="game">
+    </label>
+    <br />
+    <label for="platform">
+      Platform:
+      <select name="platform">
+        <option value="Wii">Wii</option>
+        <option value="Wii U">Wii U</option>
+        <option value="Switch">Switch</option>
+        <option value="PS3">PS3</option>
+        <option value="PS4">PS4</option>
+        <option value="Xbox 360" >Xbox 360</option>
+        <option value="Xbox One">Xbox One</option>
+        <option value="PC" selected>PC</option>
+      </select>
+    </label>
+    <br />
+    <label for="playKind">
+      Play Type:
+      <select name="playKind">
+        <option value="Casual" selected>Casual</option>
+        <option value="Serious">Serious</option>
+        <option value="Any">Any</option>
+      </select>
+    </label>
+    <br />
+    <label for="minAge">
+      Minimum Age: <input type="number" min="0" max="100" value="18" name="minAge">
+    </label>
+    <br />
+    <label for="maxAge">
+      Maximum Age: <input type="number" min="0" max="120" value="120" name="maxAge">
+    </label>
+    <br />
+    <label for="continent">
+      Location:
+      <select name="continent">
+        <option value="Asia">Asia</option>
+        <option value="Africa">Africa</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Antartica">Antartica</option>
+        <option value="Europe" selected>Europe</option>
+        <option value="Australia">Australia</option>
+      </select>
+    </label>
+    <br />
+    <input type="submit" value="Create Classified"/>
+  </form>
 {% endblock %}

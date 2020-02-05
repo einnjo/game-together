@@ -6,7 +6,8 @@ import {
   Query,
   Param,
   Delete,
-  Render
+  Render,
+  Response
 } from "@nestjs/common";
 import {
   CreateClassified,
@@ -24,6 +25,7 @@ import { DeleteClassified } from "./commands/delete-classified";
 import { DeleteCommentFromClassified } from "./commands/delete-comment-from-classified";
 import { Classified } from "./classified";
 import { GetClassified } from "./queries/get-classified";
+import * as express from "express";
 
 @Controller()
 export class ClassifiedController {
@@ -38,11 +40,12 @@ export class ClassifiedController {
 
   @Post("classifieds")
   async createClassified(
-    @Body() params: CreateClassifiedDto
-  ): Promise<Classified> {
+    @Body() params: CreateClassifiedDto,
+    @Response() res: express.Response
+  ): Promise<void> {
     const classified = await this.createClassifiedCommand.execute(params);
 
-    return classified;
+    return res.redirect(303, `/classifieds/${classified.id}`);
   }
 
   @Delete("classifieds/:classifiedId")
@@ -55,14 +58,15 @@ export class ClassifiedController {
   @Post("classifieds/:classifiedId/comments")
   async addCommentToClassified(
     @Param("classifiedId") classifiedId: string,
-    @Body() params: Pick<AddCommentToClassifiedDto, "content">
-  ): Promise<Classified> {
+    @Body() params: Pick<AddCommentToClassifiedDto, "content">,
+    @Response() res: express.Response
+  ): Promise<void> {
     const classified = await this.addCommentToClassifiedCommand.execute({
       ...params,
       classifiedId
     });
 
-    return classified;
+    return res.redirect(303, `/classifieds/${classified.id}`);
   }
 
   @Delete("classifieds/:classifiedId/comments/:commentId")

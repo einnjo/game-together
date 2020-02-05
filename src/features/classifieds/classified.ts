@@ -9,13 +9,13 @@ import { ObjectId } from "mongodb";
 import { Comment } from "./comment";
 
 export type Continent =
-  | "ASIA"
-  | "AFRICA"
-  | "NORTH_AMERICA"
-  | "SOUTH_AMERICA"
-  | "ANTARTICA"
-  | "EUROPE"
-  | "AUSTRALIA";
+  | "Asia"
+  | "Africa"
+  | "North America"
+  | "South America"
+  | "Antartica"
+  | "Europe"
+  | "Australia";
 
 export type PlayKind = "Casual" | "Serious" | "Any";
 

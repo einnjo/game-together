@@ -25,8 +25,16 @@
   <ul>
   {% for comment in classified.comments %}
     <li>
-      <p>comment.content</p>
+      <p>{{ comment.content }}</p>
     </li>
   {% endfor %}
   </ul>
+  <form method="POST" action="/classifieds/{{ classified.id }}/comments">
+    <label for="content">
+      Comment:
+      <textarea name="content"></textarea>
+    </label>
+    <br />
+    <input type="submit" value="Submit"/>
+  </form>
 {% endblock %}
