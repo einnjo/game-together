@@ -5,7 +5,7 @@
     <div>
       <a href="/classifieds/{{ classified.id }}">{{ classified.title }}</a>
       <br />
-      <span>{{ classified.platform }} | {{ classified.game }} | {{ classified.playKind}} | Ages {{ classified.minAge}} - {{classified.maxAge}} | {{ classified.continent }}<span>
+      <span>{{ classified.platform }} | {{ classified.game }} | {{ classified.continent }}<span>
     </div>
   {% endfor %}
 
@@ -30,23 +30,6 @@
         <option value="Xbox One">Xbox One</option>
         <option value="PC" selected>PC</option>
       </select>
-    </label>
-    <br />
-    <label for="playKind">
-      Play Type:
-      <select name="playKind">
-        <option value="Casual" selected>Casual</option>
-        <option value="Serious">Serious</option>
-        <option value="Any">Any</option>
-      </select>
-    </label>
-    <br />
-    <label for="minAge">
-      Minimum Age: <input type="number" min="0" max="100" value="18" name="minAge">
-    </label>
-    <br />
-    <label for="maxAge">
-      Maximum Age: <input type="number" min="0" max="120" value="120" name="maxAge">
     </label>
     <br />
     <label for="continent">

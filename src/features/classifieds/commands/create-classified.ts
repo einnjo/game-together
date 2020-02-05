@@ -14,10 +14,7 @@ export class CreateClassified {
     const classified = new Classified(
       params.title,
       params.game,
-      params.minAge,
-      params.maxAge,
       params.continent,
-      params.playKind,
       params.platform
     );
     await this.classifiedRepository.persistAndFlush(classified);
@@ -29,9 +26,6 @@ export class CreateClassified {
 export interface CreateClassifiedDto {
   title: string;
   game: string;
-  minAge: number;
-  maxAge: number;
   continent: Continent;
-  playKind: PlayKind;
   platform: Platform;
 }

@@ -44,15 +44,6 @@ export class Classified implements IdEntity<Classified> {
   game: string;
 
   @Property()
-  minAge: number;
-
-  @Property()
-  maxAge: number;
-
-  @Property()
-  playKind: PlayKind;
-
-  @Property()
   continent: Continent;
 
   @Property()
@@ -70,18 +61,12 @@ export class Classified implements IdEntity<Classified> {
   constructor(
     title: string,
     game: string,
-    minAge: number,
-    maxAge: number,
     continent: Continent,
-    playKind: PlayKind,
     platform: Platform
   ) {
     this.title = title;
     this.game = game;
     this.continent = continent;
-    this.playKind = playKind;
-    this.minAge = minAge;
-    this.maxAge = maxAge;
     this.platform = platform;
     this.comments = [];
   }
