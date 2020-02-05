@@ -1,4 +1,4 @@
-import { Classified } from "../classified";
+import { Classified, Continent, Platform } from "../classified";
 import { EntityRepository } from "mikro-orm";
 import { Injectable, Inject } from "@nestjs/common";
 import { Repositories } from "src/constants";
@@ -11,9 +11,10 @@ export class FindClassifieds {
   ) {}
 
   async execute(params: FindClassifiedsDto): Promise<Classified[]> {
-    const classifieds = await this.classifiedRepository.find(
-      params.classifiedId
-    );
+    const classifieds = await this.classifiedRepository.find({
+      platform: params.platform,
+      continent: params.continent
+    });
 
     await this.classifiedRepository.flush();
 
@@ -22,5 +23,6 @@ export class FindClassifieds {
 }
 
 export interface FindClassifiedsDto {
-  classifiedId: string;
+  platform: Platform;
+  continent: Continent;
 }
