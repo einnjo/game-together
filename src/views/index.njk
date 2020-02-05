@@ -2,6 +2,11 @@
 
 {% block content %}
   <form method="GET" action="/">
+    <label for="titleOrGame">
+      Search:
+      <input type="text" name="titleOrGame">
+    </label>
+    <br />
     <label for="platform">
       Platform:
       <select name="platform">
@@ -28,8 +33,11 @@
         <option value="Australia">Australia</option>
       </select>
     </label>
-    <input type="submit" value="Search"/>
+    <br />
+    <input type="submit" value="Go"/>
   </form>
+
+  <br />
 
   {% for classified in classifieds %}
     <div>
@@ -38,6 +46,8 @@
       <span>{{ classified.platform }} | {{ classified.game }} | {{ classified.continent }}<span>
     </div>
   {% endfor %}
+
+  <br />
 
   <form method="POST" action="/classifieds">
     <label for="title">
