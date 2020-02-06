@@ -6,7 +6,6 @@ import {
   Query,
   Param,
   Delete,
-  Render,
   Response
 } from "@nestjs/common";
 import {
@@ -27,7 +26,7 @@ import { Classified } from "./classified";
 import { GetClassified } from "./queries/get-classified";
 import * as express from "express";
 
-@Controller()
+@Controller("classifieds")
 export class ClassifiedController {
   constructor(
     private readonly createClassifiedCommand: CreateClassified,
@@ -38,38 +37,38 @@ export class ClassifiedController {
     private readonly getClassifiedQuery: GetClassified
   ) {}
 
-  @Post("classifieds")
+  @Post()
   async createClassified(
     @Body() params: CreateClassifiedDto,
     @Response() res: express.Response
-  ): Promise<void> {
+  ): Promise<Classified> {
     const classified = await this.createClassifiedCommand.execute(params);
 
-    return res.redirect(303, `/classifieds/${classified.id}`);
+    return classified;
   }
 
-  @Delete("classifieds/:classifiedId")
+  @Delete(":classifiedId")
   async deleteClassified(
     @Param("classifiedId") classifiedId: string
   ): Promise<void> {
     await this.deleteClassifiedCommand.execute({ classifiedId });
   }
 
-  @Post("classifieds/:classifiedId/comments")
+  @Post(":classifiedId/comments")
   async addCommentToClassified(
     @Param("classifiedId") classifiedId: string,
     @Body() params: Pick<AddCommentToClassifiedDto, "content">,
     @Response() res: express.Response
-  ): Promise<void> {
+  ): Promise<Classified> {
     const classified = await this.addCommentToClassifiedCommand.execute({
       ...params,
       classifiedId
     });
 
-    return res.redirect(303, `/classifieds/${classified.id}`);
+    return classified;
   }
 
-  @Delete("classifieds/:classifiedId/comments/:commentId")
+  @Delete(":classifiedId/comments/:commentId")
   async deletCommentFromClassified(
     @Param("classifiedId") classifiedId: string,
     @Param("commentId") commentId: string
@@ -81,24 +80,22 @@ export class ClassifiedController {
   }
 
   @Get()
-  @Render("index")
   async findClassifieds(
     @Query() params: FindClassifiedsDto
-  ): Promise<{ classifieds: Classified[] }> {
+  ): Promise<Classified[]> {
     const classifieds = await this.findClassifiedsQuery.execute(params);
 
-    return { classifieds };
+    return classifieds;
   }
 
-  @Get("classifieds/:classifiedId")
-  @Render("classified")
+  @Get(":classifiedId")
   async getClassified(
     @Param("classifiedId") classifiedId: string
-  ): Promise<{ classified: Classified }> {
+  ): Promise<Classified> {
     const classified = await this.getClassifiedQuery.execute({
       classifiedId
     });
 
-    return { classified };
+    return classified;
   }
 }
