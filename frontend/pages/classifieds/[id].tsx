@@ -10,9 +10,7 @@ ClassifiedDetailPage.getInitialProps = async function(
   context: NextPageContext
 ) {
   const { id } = context.query;
-  console.log({ id });
   const classified = await getClassified(id as string);
-  console.log(classified);
 
   return { classified };
 };
