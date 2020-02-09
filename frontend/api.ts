@@ -16,3 +16,9 @@ export async function getClassifieds(): Promise<Classified[]> {
 
   return result.data;
 }
+
+export async function getClassified(id: string): Promise<Classified> {
+  const result = await client.get(`http://localhost:3001/classifieds/${id}`);
+
+  return result.data;
+}

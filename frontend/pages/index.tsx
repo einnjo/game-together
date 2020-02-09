@@ -2,7 +2,9 @@ import { NextPage } from "next";
 import { getClassifieds, Classified } from "../api";
 import { ClassifiedList } from "../components/ClassifiedList";
 
-const Index: NextPage<{ classifieds: Classified[] }> = ({ classifieds }) => {
+const IndexPage: NextPage<{ classifieds: Classified[] }> = ({
+  classifieds
+}) => {
   return (
     <div>
       <ClassifiedList classifieds={classifieds} />
@@ -10,9 +12,9 @@ const Index: NextPage<{ classifieds: Classified[] }> = ({ classifieds }) => {
   );
 };
 
-Index.getInitialProps = async ({ req }) => {
+IndexPage.getInitialProps = async ({ req }) => {
   const classifieds = await getClassifieds();
   return { classifieds };
 };
 
-export default Index;
+export default IndexPage;
