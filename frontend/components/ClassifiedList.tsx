@@ -7,7 +7,7 @@ type ClassifiedListProps = {
 
 export const ClassifiedList = ({ classifieds }: ClassifiedListProps) => {
   const classifiedsView = classifieds.map((classified: Classified) => (
-    <div>
+    <div key={classified.id}>
       <Link href="/classifieds/[id]" as={`/classifieds/${classified.id}`}>
         <a>{classified.title}</a>
       </Link>
