@@ -1,12 +1,18 @@
 import { NextPage } from "next";
+import { getClassifieds, Classified } from "../api";
+import { ClassifiedList } from "../components/ClassifiedList";
 
-const Index: NextPage<{ userAgent: string }> = ({ userAgent }) => (
-  <h1>Hello world! - user agent: {userAgent}</h1>
-);
+const Index: NextPage<{ classifieds: Classified[] }> = ({ classifieds }) => {
+  return (
+    <div>
+      <ClassifiedList classifieds={classifieds} />
+    </div>
+  );
+};
 
 Index.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers["user-agent"] || "" : navigator.userAgent;
-  return { userAgent };
+  const classifieds = await getClassifieds();
+  return { classifieds };
 };
 
 export default Index;

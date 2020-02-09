@@ -1,0 +1,44 @@
+{
+  "classifieds": [
+    {
+      "id": "5e3a4028267c6fa920a76650",
+      "title": "22M looking for people to play GTA with",
+      "game": "GTAV",
+      "continent": "Europe",
+      "platform": "PC",
+      "comments": [],
+      "createdAt": "2020-02-05T04:10:16.566Z",
+      "updatedAt": "2020-02-05T04:10:16.567Z"
+    },
+    {
+      "id": "5e3a4028267c6fa920a76651",
+      "title": "Need fellow racers for a tournament",
+      "game": "Forza 5",
+      "continent": "Europe",
+      "platform": "Xbox One",
+      "comments": [],
+      "createdAt": "2020-02-05T04:10:16.566Z",
+      "updatedAt": "2020-02-05T04:10:16.567Z"
+    },
+    {
+      "id": "5e3a4028267c6fa920a76652",
+      "title": "Anyone up for a round of zombies?",
+      "game": "COD: Black Ops",
+      "continent": "Europe",
+      "platform": "PC",
+      "comments": [],
+      "createdAt": "2020-02-05T04:10:16.566Z",
+      "updatedAt": "2020-02-05T04:10:16.567Z"
+    },
+    {
+      "id": "5e3a4028267c6fa920a76653",
+      "title": "Need 3 people for a L4D2 party",
+      "game": "Left 4 Dead 2",
+      "continent": "Europe",
+      "platform": "PC",
+      "comments": [],
+      "createdAt": "2020-02-05T04:10:16.566Z",
+      "updatedAt": "2020-02-05T04:10:16.567Z"
+    }
+  ]
+}
