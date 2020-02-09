@@ -1,6 +1,6 @@
 # Compiled output
 /dist
-/node_modules
+node_modules
 
 # Temp folder
 temp
@@ -38,3 +38,6 @@ lerna-debug.log*
 
 # Config file
 .env
+
+# Next.js artifacts
+.next
