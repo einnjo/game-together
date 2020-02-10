@@ -1,30 +1,11 @@
-# Game Together
+# Game Together Backend
 
-A sample full stack web application written in Typescript using Node.js and the following tech stack:
+Backend API for the Game Together application, built with the following technologies:
 
 - [NestJS](http://nestjs.com/) web framework
 - [Mikro-ORM](https://mikro-orm.io/) ORM
 - [MongoDB](https://www.mongodb.com/) NoSQL database
 - [Jest](https://jestjs.io/) Testing framework
-- [Nunjucks](https://mozilla.github.io/nunjucks/) Template rendering
-
-It supports the following use cases:
-
-- Users can post classifieds looking for other players to join their games.
-- Users can remove their own classifieds.
-- Users can comment on classifieds.
-- Users can remove their own comments.
-- Users can filter classifieds in order to refine their query.
-
-Important design decisions:
-
-- No accounts. Users are identified via anonymous sessions.
-- Classifieds are deleted after 24hrs of existence.
-- Minimalistic and lightweight UI inspired by:
-  - [Craigslist](https://www.craigslist.org/about/sites)
-  - [Pinboard](https://pinboard.in/)
-  - [Hacker News](https://news.ycombinator.com/)
-  - [Reddit (before the redesign)](https://old.reddit.com)
 
 ## Dir Structure
 
