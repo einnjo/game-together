@@ -22,3 +22,24 @@ export async function getClassified(id: string): Promise<Classified> {
 
   return result.data;
 }
+
+export async function createClassified(params: {
+  title: string;
+  body: string;
+}) {
+  const result = await client.post("http://localhost:3001/classifieds", params);
+
+  return result.data;
+}
+
+export async function commentOnClassified(params: {
+  classifiedId: string;
+  comment: string;
+}) {
+  const result = await client.post(
+    `http://localhost:3001/classifieds/${params.classifiedId}/comments`,
+    { content: params.comment }
+  );
+
+  return result.data;
+}
