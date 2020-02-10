@@ -30,8 +30,8 @@ Important design decisions:
 
 ## Frontend source
 
-[See frontend folder](frontend/README.md)
+[See frontend folder](frontend)
 
 ## Backend source
 
-[See backend folder](backend/README.md)
+[See backend folder](backend)
