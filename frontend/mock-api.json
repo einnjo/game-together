@@ -6,7 +6,6 @@
       "game": "GTAV",
       "continent": "Europe",
       "platform": "PC",
-      "comments": [],
       "createdAt": "2020-02-05T04:10:16.566Z",
       "updatedAt": "2020-02-05T04:10:16.567Z"
     },
@@ -16,7 +15,6 @@
       "game": "Forza 5",
       "continent": "Europe",
       "platform": "Xbox One",
-      "comments": [],
       "createdAt": "2020-02-05T04:10:16.566Z",
       "updatedAt": "2020-02-05T04:10:16.567Z"
     },
@@ -26,7 +24,6 @@
       "game": "COD: Black Ops",
       "continent": "Europe",
       "platform": "PC",
-      "comments": [],
       "createdAt": "2020-02-05T04:10:16.566Z",
       "updatedAt": "2020-02-05T04:10:16.567Z"
     },
@@ -36,9 +33,15 @@
       "game": "Left 4 Dead 2",
       "continent": "Europe",
       "platform": "PC",
-      "comments": [],
       "createdAt": "2020-02-05T04:10:16.566Z",
       "updatedAt": "2020-02-05T04:10:16.567Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "Foo Bar Baz",
+      "classifiedId": "5e3a4028267c6fa920a76653"
     }
   ]
 }

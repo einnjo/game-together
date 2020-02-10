@@ -28,8 +28,8 @@ export class CommentForm extends React.Component<
     commentOnClassified({
       classifiedId: this.props.classifiedId,
       comment: this.state.body
-    }).then((classified: Classified) => {
-      this.props.router.push(`/classifieds/${classified.id}`);
+    }).then(() => {
+      this.props.router.push(`/classifieds/${this.props.classifiedId}`);
     });
   }
 
