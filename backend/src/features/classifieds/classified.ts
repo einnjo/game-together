@@ -1,11 +1,8 @@
 import {
-  IdEntity,
   Entity,
-  PrimaryKey,
   Property,
-  SerializedPrimaryKey
 } from "mikro-orm";
-import { ObjectId } from "mongodb";
+import { BaseEntity } from "./base-entity";
 import { Comment } from "./comment";
 
 export type Continent =
@@ -30,13 +27,7 @@ export type Platform =
   | "PC";
 
 @Entity()
-export class Classified implements IdEntity<Classified> {
-  @PrimaryKey()
-  _id: ObjectId;
-
-  @SerializedPrimaryKey()
-  id!: string;
-
+export class Classified extends BaseEntity {
   @Property()
   title!: string;
 
@@ -52,18 +43,13 @@ export class Classified implements IdEntity<Classified> {
   @Property()
   comments: Comment[];
 
-  @Property()
-  createdAt = new Date();
-
-  @Property({ onUpdate: () => new Date() })
-  updatedAt = new Date();
-
   constructor(
     title: string,
     game: string,
     continent: Continent,
     platform: Platform
   ) {
+    super();
     this.title = title;
     this.game = game;
     this.continent = continent;

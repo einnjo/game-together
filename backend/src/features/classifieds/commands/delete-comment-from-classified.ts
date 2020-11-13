@@ -1,7 +1,7 @@
 import { Classified } from "../classified";
 import { EntityRepository } from "mikro-orm";
 import { Injectable, Inject } from "@nestjs/common";
-import { Repositories } from "src/constants";
+import { Repositories } from "../../../constants";
 import { Comment } from "../comment";
 
 @Injectable()
@@ -9,7 +9,7 @@ export class DeleteCommentFromClassified {
   constructor(
     @Inject(Repositories.Classified)
     private readonly classifiedRepository: EntityRepository<Classified>
-  ) {}
+  ) { }
 
   async execute(params: DeleteCommentFromClassifiedDto): Promise<Classified> {
     const classified = await this.classifiedRepository.findOneOrFail(

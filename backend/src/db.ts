@@ -1,15 +1,17 @@
 import { EntityManager, MikroORM } from "mikro-orm";
 import { Config } from "./config";
 import { Repositories } from "./constants";
+import { BaseEntity } from "./features/classifieds/base-entity";
 import { Classified } from "./features/classifieds/classified";
 
 export const EntityManagerProvider = {
   provide: EntityManager,
   useFactory: async (config: Config) => {
     const db = await MikroORM.init({
-      entities: [Classified],
+      type: "mongo",
+      entities: [BaseEntity, Classified],
       dbName: config.X_MONGO_DB,
-      clientUrl: `mongodb+srv://${config.X_MONGO_USER}:${config.X_MONGO_PASSWORD}@${config.X_MONGO_HOST}/?retryWrites=true&w=majority`
+      clientUrl: `mongodb://${config.X_MONGO_HOST}/?retryWrites=true&w=majority`
     });
     return db.em;
   },

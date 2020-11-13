@@ -6,7 +6,6 @@ import {
   Query,
   Param,
   Delete,
-  Response
 } from "@nestjs/common";
 import {
   CreateClassified,
@@ -35,12 +34,11 @@ export class ClassifiedController {
     private readonly deleteCommentFromClassifiedCommand: DeleteCommentFromClassified,
     private readonly findClassifiedsQuery: FindClassifieds,
     private readonly getClassifiedQuery: GetClassified
-  ) {}
+  ) { }
 
   @Post()
   async createClassified(
     @Body() params: CreateClassifiedDto,
-    @Response() res: express.Response
   ): Promise<Classified> {
     const classified = await this.createClassifiedCommand.execute(params);
 
@@ -58,7 +56,6 @@ export class ClassifiedController {
   async addCommentToClassified(
     @Param("classifiedId") classifiedId: string,
     @Body() params: Pick<AddCommentToClassifiedDto, "content">,
-    @Response() res: express.Response
   ): Promise<Classified> {
     const classified = await this.addCommentToClassifiedCommand.execute({
       ...params,
